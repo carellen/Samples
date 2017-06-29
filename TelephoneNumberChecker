@@ -1,0 +1,19 @@
+ public static boolean checkTelNumber(String telNumber) {
+        if (telNumber == null) {
+            return false;
+        }
+        String numbers = telNumber.replaceAll("[^\\d]", "");
+        if (numbers.length() != 10 && numbers.length() != 12) {
+            return false;
+
+        }
+        else if (telNumber.startsWith("+") && numbers.length() != 12) {
+            return false;
+        }
+        else if (telNumber.startsWith("(") && numbers.length() != 10) {
+            return false;
+        }
+        else {
+                return telNumber.matches("^(\\+\\d*)?(\\(\\d{3}\\))?(\\d+-?\\d+-?)\\d+$");
+        }
+    }
